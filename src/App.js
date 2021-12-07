@@ -1,6 +1,7 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { Navbar } from "./components/Navbar/Navbar";
+import { Banner } from "./components/Banner/Banner";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -18,6 +19,7 @@ function App() {
     <>
       <GlobalStyle />
       <Navbar />
+      <Banner />
       <div>Hello Sliceline</div>
     </>
   );
