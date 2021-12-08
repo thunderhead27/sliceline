@@ -64,12 +64,23 @@ const DialogBannerName = styled(FoodLabel)`
   padding: 5px 40px;
 `;
 
-export const FoodDialog = ({ openFood, setOpenFood }) => {
+export const FoodDialog = ({ openFood, setOpenFood, setOrders, orders }) => {
   function close() {
     setOpenFood();
   }
 
-  return openFood ? (
+  if (!openFood) return null;
+
+  const order = {
+    name: openFood.name,
+  };
+
+  function addToOrder() {
+    setOrders([...orders, order]);
+    close();
+  }
+
+  return (
     <>
       <DialogShadow onClick={close} />
       <Dialog>
@@ -78,9 +89,9 @@ export const FoodDialog = ({ openFood, setOpenFood }) => {
         </DialogBanner>
         <DialogContent></DialogContent>
         <DialogFooter>
-          <ConfirmButton>Add to order</ConfirmButton>
+          <ConfirmButton onClick={addToOrder}>Add to order</ConfirmButton>
         </DialogFooter>
       </Dialog>
     </>
-  ) : null;
+  );
 };
