@@ -7,10 +7,12 @@ import { Menu } from "./components/Menu/Menu";
 import { FoodDialog } from "./components/FoodDialog/FoodDialog";
 import { useOpenFood } from "./hooks/useOpenFood";
 import { useOrders } from "./hooks/useOrders";
+import { useTitle } from "./hooks/useTitle";
 
 function App() {
   const openFood = useOpenFood();
   const orders = useOrders();
+  useTitle({ ...openFood, ...orders });
 
   return (
     <>
