@@ -24,7 +24,7 @@ export function Choices({ openFood, choiceRadio }) {
             checked={choiceRadio.value === choice}
             onChange={choiceRadio.onChange}
           />
-          <Label for={choice}> {choice} </Label>
+          <Label htmlFor={choice}> {choice} </Label>
         </>
       ))}
     </>
